@@ -10,7 +10,7 @@ const RegisterInfo = (props) => {
   return (
     <div
       className={classes.register}
-      style={{ backgroundImage: `url(${background})` }}
+      style={{ backgroundImage: `url(${background})`, backgroundSize: "cover" }}
     >
       <div className={classes.backShadow}>
         <h1>

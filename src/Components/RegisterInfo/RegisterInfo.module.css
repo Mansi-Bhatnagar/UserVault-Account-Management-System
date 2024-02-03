@@ -67,3 +67,16 @@
   font-size: 19px;
   transition: all ease-in-out 0.4s;
 }
+@media (max-width: 1040px) {
+  .register {
+    width: 400px;
+  }
+  .backShadow p {
+    width: 90%;
+  }
+}
+@media (max-width: 800px) {
+  .register {
+    width: 100%;
+  }
+}

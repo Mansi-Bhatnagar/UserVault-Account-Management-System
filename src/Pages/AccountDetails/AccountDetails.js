@@ -324,8 +324,10 @@ const AccountDetails = () => {
           />
         </div>
       </div>
+      <span className={classes.success}>
+        {successMessage ? successMessage : ""}
+      </span>
       <div className={classes.buttonContainer}>
-        <span>{successMessage ? successMessage : ""}</span>
         <button className={classes.btn} onClick={handleSaveChanges}>
           Save
         </button>

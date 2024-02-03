@@ -85,3 +85,22 @@ input[type="checkbox"] {
   font-size: 19px;
   transition: all ease-in-out 0.4s;
 }
+@media (max-width: 1240px) {
+  .loginBtn {
+    width: 80%;
+  }
+}
+@media (max-width: 1040px) {
+  .login {
+    width: calc(100vw - 400px);
+  }
+}
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    height: 100%;
+  }
+  .login {
+    width: 100%;
+  }
+}

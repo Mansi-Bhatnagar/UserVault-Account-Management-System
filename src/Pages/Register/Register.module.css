@@ -75,3 +75,33 @@
     transform: translateX(0);
   }
 }
+@media (max-width: 1215px) {
+  .registerBtn {
+    width: 80%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 1040px) {
+  .container {
+    justify-content: space-between;
+  }
+  .form {
+    width: calc(100vw - 400px);
+  }
+  .border {
+    width: calc(100vw - 400px);
+  }
+}
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+  .border {
+    display: none;
+  }
+  .form {
+    width: 100%;
+    height: 100%;
+  }
+}

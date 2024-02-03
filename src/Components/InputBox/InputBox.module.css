@@ -38,3 +38,19 @@ input[type="date"]:required:invalid::-webkit-datetime-edit {
 input:focus::-webkit-datetime-edit {
   color: #979dac !important;
 }
+@media (max-width: 1240px) {
+  .inputBox {
+    width: 400px;
+  }
+  .inputBox input {
+    width: 400px;
+  }
+}
+@media (max-width: 500px) {
+  .inputBox {
+    width: 300px;
+  }
+  .inputBox input {
+    width: 300px;
+  }
+}

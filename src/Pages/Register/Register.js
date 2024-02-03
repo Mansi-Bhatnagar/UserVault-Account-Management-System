@@ -6,6 +6,7 @@ import classes from "./Register.module.css";
 const Register = () => {
   const navigate = useNavigate();
 
+  //States for Registration Details
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,6 +21,7 @@ const Register = () => {
   const [companyName, setCompanyName] = useState("");
   const [error, setError] = useState("");
 
+  //Handlers for setting values
   const firstNameHandler = (e) => {
     setFirstName(e.target.value);
   };
@@ -57,19 +59,26 @@ const Register = () => {
     setCompanyName(e.target.value);
   };
 
+  //Email Validation
   const validEmail = (email) => {
     const pattern =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     return pattern.test(email);
   };
+
+  //Password Validation
   const validPassword = (password) => {
     const pattern =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,15}$/;
     return pattern.test(password);
   };
 
+  //Submit Handler
   const submitHandler = (e) => {
     e.preventDefault();
+
+    //Validating All Fields
+
     if (firstName.trim() === "") {
       setError("First Name cannot be empty");
       return;
@@ -120,20 +129,7 @@ const Register = () => {
       setError("Account already exsists");
       return;
     } else {
-      console.log(
-        firstName,
-        lastName,
-        email,
-        password,
-        address,
-        city,
-        country,
-        pinCode,
-        contactNo,
-        dob,
-        jobTitle,
-        companyName
-      );
+      // Setting All Values
       localStorage.setItem(
         email,
         JSON.stringify({

@@ -6,11 +6,17 @@ import classes from "./Login.module.css";
 import InputBox from "../../Components/InputBox/InputBox";
 const Login = () => {
   const navigate = useNavigate();
+
+  //For checking Remember Me Checkbox state
   const [check, setCheck] = useState(localStorage.getItem("check") || false);
+  //For Email
   const [email, setEmail] = useState("");
+  //For Password
   const [password, setPassword] = useState("");
+  //For Validation
   const [error, setError] = useState("");
 
+  //Handlers
   const checkHandler = () => {
     setCheck((prev) => !prev);
   };
@@ -22,6 +28,9 @@ const Login = () => {
   };
   const loginHandler = (e) => {
     e.preventDefault();
+
+    //Checking Validations
+
     if (email === "") {
       setError("Email cannot be blank");
       return;
@@ -50,6 +59,8 @@ const Login = () => {
   };
 
   useEffect(() => {
+    //Setting values if Remember Me was checked
+
     if (localStorage.getItem("email")) {
       setEmail(localStorage.getItem("email"));
     }

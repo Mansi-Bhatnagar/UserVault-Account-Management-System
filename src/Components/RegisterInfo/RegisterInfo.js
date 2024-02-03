@@ -4,6 +4,8 @@ import classes from "./RegisterInfo.module.css";
 
 const RegisterInfo = (props) => {
   const navigate = useNavigate();
+
+  //Register Handler
   const registerHandler = () => {
     navigate("/register");
   };

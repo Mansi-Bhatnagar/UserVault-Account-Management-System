@@ -6,6 +6,8 @@ import classes from "./AccountDetails.module.css";
 import InputBox from "../../Components/InputBox/InputBox";
 const AccountDetails = () => {
   const navigate = useNavigate();
+
+  //States for all the fields
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,6 +22,7 @@ const AccountDetails = () => {
   const [companyName, setCompanyName] = useState("");
   const [successMessage, setSuccesMessage] = useState("");
 
+  //Handlers
   const firstNameHandler = (e) => {
     setFirstName(e.target.value);
   };
@@ -54,19 +57,25 @@ const AccountDetails = () => {
     setCompanyName(e.target.value);
   };
 
+  //Getting all the values from Local Storage
   useEffect(() => {
     handleResetValues();
   }, []);
 
+  //Logout Handler
   const logoutHandler = () => {
     navigate("/");
   };
+
+  //For Editing Fields
   const handleEdit = (field) => {
     const elem = document.querySelector(`input[name=${field}]`);
     if (elem) {
       elem.focus();
     }
   };
+
+  //For Resetting Values
   const handleResetValues = (e) => {
     e?.preventDefault();
     const userEmail = localStorage.getItem("email");
@@ -84,6 +93,8 @@ const AccountDetails = () => {
     setJobTitle(information.jobTitle);
     setCompanyName(information.companyName);
   };
+
+  //For Saving Changed Values
   const handleSaveChanges = (e) => {
     e.preventDefault();
     localStorage.setItem(
@@ -103,11 +114,14 @@ const AccountDetails = () => {
         companyName: companyName,
       })
     );
+
+    //Setting Success Message
     setSuccesMessage("Changes Successfully Saved!");
     setTimeout(() => {
       setSuccesMessage("");
     }, 3000);
   };
+
   return (
     <div className={classes.container}>
       <header className={classes.header}>

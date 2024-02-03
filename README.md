@@ -15,8 +15,8 @@ View live on- [https://user-vault-account-management-system.netlify.app/](https:
 This is an assignment created as per following requirements-
 
 1. A Registration Page- Here, the user registers with an email and password and enters several personal and professional details.
-2. A Login Page- After registration the user can login.
-3. An Account Details Page- After the user gets logged in, he/she can view as well as edit their details and save them. And the user can also logout from their account.
+2. A Login Page- After registration the users can login with their respective email and password.
+3. An Account Details Page- After the users get logged in, they can view as well as edit their details and save them. And the user can also logout from their account.
 
 ## Built with
 

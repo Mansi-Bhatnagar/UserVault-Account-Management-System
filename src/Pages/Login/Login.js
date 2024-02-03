@@ -1,47 +1,89 @@
-import { useState } from "react";
-import background from "../../Assets/istockphoto-1395448518-612x612.jpg";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import RegisterInfo from "../../Components/RegisterInfo/RegisterInfo";
 import checkImg from "../../Assets/check.svg";
 import classes from "./Login.module.css";
+import InputBox from "../../Components/InputBox/InputBox";
 const Login = () => {
+  const navigate = useNavigate();
   const [check, setCheck] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
   const checkHandler = () => {
     setCheck((prev) => !prev);
   };
+  const emailHandler = (e) => {
+    setEmail(e.target.value);
+  };
+  const passwordHandler = (e) => {
+    setPassword(e.target.value);
+  };
+  const loginHandler = (e) => {
+    e.preventDefault();
+    if (email === "") {
+      setError("Email cannot be blank");
+      return;
+    }
+    if (password === "") {
+      setError("Password cannot be blank");
+      return;
+    }
+    if (!localStorage.getItem(email)) {
+      setError("Account doesn't exist");
+      return;
+    } else {
+      const information = JSON.parse(localStorage.getItem(email));
+      if (information.password !== password) {
+        setError("Incorrect password");
+        return;
+      } else {
+        if (check) {
+          localStorage.setItem("email", email);
+          localStorage.setItem("password", password);
+          localStorage.setItem("check", true);
+        }
+        navigate("/details");
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("email")) {
+      setEmail(localStorage.getItem("email"));
+    }
+    if (localStorage.getItem("password")) {
+      setPassword(localStorage.getItem("password"));
+    }
+    if (localStorage.getItem("check")) {
+      setCheck(true);
+    }
+  }, []);
+
   return (
     <div className={classes.container}>
-      <div
-        className={classes.register}
-        style={{ backgroundImage: `url(${background})` }}
-      >
-        <div className={classes.backShadow}>
-          <h1>
-            We haven't
-            <br /> met before right?
-          </h1>
-          <div className={classes.line} />
-          <h3>Then you should try us!</h3>
-          <p>
-            Join thousands of satisfied users who have revolutionized their
-            account management processes with <span> User Vault</span>. Sign up
-            now to experience the convenience and efficiency firsthand!
-          </p>
-          <button className={classes.registerBtn}>Register</button>
-        </div>
-      </div>
+      <RegisterInfo showButton={true} />
       <div className={classes.login}>
         <h1>
           Welcome to <br />
           <span>User Vault!</span>
         </h1>
-        <form>
-          <div className={classes.inputBox}>
-            <input type="email" required />
-            <label>Email</label>
-          </div>
-          <div className={classes.inputBox}>
-            <input type="password" required />
-            <label>Password</label>
-          </div>
+        <form onSubmit={loginHandler}>
+          <InputBox
+            type={"email"}
+            label={"Email"}
+            required={true}
+            onChange={emailHandler}
+            value={email}
+          />
+          <InputBox
+            type={"password"}
+            label={"Password"}
+            required={true}
+            onChange={passwordHandler}
+            value={password}
+          />
           <div className={classes.checkbox}>
             <div
               className={
@@ -58,7 +100,10 @@ const Login = () => {
               Remember me
             </label>
           </div>
-          <button className={classes.loginBtn}>Login</button>
+          <p className={classes.error}>{error ? "* " + error : ""}</p>
+          <button className={classes.loginBtn} onClick={loginHandler}>
+            Login
+          </button>
         </form>
       </div>
     </div>

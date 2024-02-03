@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  animation-name: Morph;
+  animation-duration: 1.5s;
+}
+.form {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: calc(100vw - 600px);
+  height: calc(100vh - 160px);
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+  }
+}
+.form:hover {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #979dac8c;
+    border-radius: 10px;
+  }
+}
+.form h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 20px;
+  color: #f48c06;
+}
+.border {
+  height: 80px;
+  background-color: #fff;
+  position: fixed;
+  width: calc(100vw - 600px);
+  z-index: 100;
+}
+.registerBtn {
+  border: 2px solid #f48c06;
+  outline: none;
+  border-radius: 30px;
+  padding: 10px 15px 10px 15px;
+  background-color: #f48c06;
+  color: #fff;
+  font-size: 20px;
+  width: 600px;
+  font-weight: 500;
+  margin-top: 30px;
+  letter-spacing: 1.2px;
+  transition: all ease-in-out 0.4s;
+  text-transform: uppercase;
+}
+.registerBtn:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+  font-size: 19px;
+  transition: all ease-in-out 0.4s;
+}
+.error {
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 20px;
+  color: #f48c06;
+}
+@keyframes Morph {
+  0% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

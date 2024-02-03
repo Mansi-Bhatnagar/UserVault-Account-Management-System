@@ -1,0 +1,126 @@
+.header {
+  margin-top: 15px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.header h3 {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0;
+}
+.header div {
+  display: flex;
+  align-items: center;
+}
+.container {
+  animation-name: Morph;
+  animation-duration: 1.5s;
+  text-align: center;
+}
+@keyframes Morph {
+  0% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.logoutBtn {
+  border: 3px solid #f48c06;
+  outline: none;
+  border-radius: 30px;
+  padding: 10px 15px 10px 15px;
+  background-color: transparent;
+  color: #f48c06;
+  font-size: 18px;
+  width: 130px;
+  font-weight: 600;
+  transition: all ease-in-out 0.3s;
+  text-transform: uppercase;
+  margin-right: 20px;
+  letter-spacing: 1.2px;
+}
+.logoutBtn:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+  font-size: 17px;
+  transition: all ease-in-out 0.3s;
+  background-color: #f48c06;
+  color: #fff;
+}
+.container h1 {
+  font-size: 30px;
+  color: #000;
+  font-weight: 500;
+}
+.container h1 span {
+  color: #f48c06;
+  text-transform: capitalize;
+}
+.accountDetails {
+  margin-left: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-right: 200px;
+}
+.container h4 {
+  font-size: 25px;
+  text-align: left;
+  margin-left: 225px;
+  margin-bottom: 0;
+}
+.pencil {
+  width: 20px;
+  z-index: 1;
+  margin-bottom: 8px;
+}
+.pencil:hover {
+  cursor: pointer;
+}
+.inputBoxContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.btn {
+  border: 2px solid #f48c06;
+  outline: none;
+  border-radius: 30px;
+  padding: 10px 15px 10px 15px;
+  background-color: #f48c06;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 50px;
+  letter-spacing: 1.2px;
+  transition: all ease-in-out 0.4s;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: right;
+}
+.btn:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+  font-size: 17px;
+  transition: all ease-in-out 0.4s;
+}
+.buttonContainer {
+  margin-right: 200px;
+}
+.buttonContainer span {
+  display: inline-block;
+  margin-top: 50px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #f48c06;
+}

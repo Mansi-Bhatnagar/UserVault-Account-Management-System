@@ -6,7 +6,7 @@ import classes from "./Login.module.css";
 import InputBox from "../../Components/InputBox/InputBox";
 const Login = () => {
   const navigate = useNavigate();
-  const [check, setCheck] = useState(false);
+  const [check, setCheck] = useState(localStorage.getItem("check") || false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -40,11 +40,11 @@ const Login = () => {
         return;
       } else {
         if (check) {
-          localStorage.setItem("email", email);
-          localStorage.setItem("password", password);
           localStorage.setItem("check", true);
         }
-        navigate("/details");
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+        navigate("/account_details");
       }
     }
   };
